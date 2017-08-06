@@ -15,7 +15,8 @@ public class SampleRoutes extends RouteBuilder {
 	
 	@Override
 	public void configure() throws Exception {
-		from("direct:sampleKafka")
+//		from("direct:sampleKafka")
+		from("kafka:localhost:9092?topic=testingkafka&groupId=testing&autoOffsetReset=earliest&consumersCount=1")
 		.process(kafkaConsumer);
 		
 	}
